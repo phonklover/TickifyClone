@@ -3,9 +3,9 @@
 /**
  * A super-simple user-authentication solution, embedded into a small framework.
  *
- * HUGE
+ * tickify
  *
- * @link https://github.com/panique/huge
+ * @link https://github.com/panique/tickify
  * @license http://opensource.org/licenses/MIT MIT License
  */
 

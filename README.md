@@ -1,11 +1,11 @@
-![HUGE, formerly "php-login" logo](_pictures/huge.png)
+![tickify, formerly "php-login" logo](_pictures/tickify.png)
 
-# HUGE
+# tickify
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/panique/huge/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/panique/huge/?branch=master)
-[![Code Climate](https://codeclimate.com/github/panique/huge/badges/gpa.svg)](https://codeclimate.com/github/panique/huge)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/01a221d168b04b1c94a85813519dab40)](https://www.codacy.com/app/panique/huge?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=panique/huge&amp;utm_campaign=Badge_Grade)
-[![Travis CI](https://travis-ci.org/panique/huge.svg?branch=master)](https://travis-ci.org/panique/huge)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/panique/tickify/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/panique/tickify/?branch=master)
+[![Code Climate](https://codeclimate.com/github/panique/tickify/badges/gpa.svg)](https://codeclimate.com/github/panique/tickify)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/01a221d168b04b1c94a85813519dab40)](https://www.codacy.com/app/panique/tickify?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=panique/tickify&amp;utm_campaign=Badge_Grade)
+[![Travis CI](https://travis-ci.org/panique/tickify.svg?branch=master)](https://travis-ci.org/panique/tickify)
 [![Dependency Status](https://www.versioneye.com/user/projects/54ca11fbde7924f81a000010/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54ca11fbde7924f81a000010)
 [![Support](https://supporterhq.com/api/b/9guz00i6rep05k1mwxyquz30k)](https://supporterhq.com/give/9guz00i6rep05k1mwxyquz30k)
 
@@ -18,7 +18,7 @@ applications with all the features modern frameworks have, then have a look at [
 [Symfony](http://symfony.com) or [Yii](http://www.yiiframework.com), but if you just want to quickly create something
 that just works, then this script might be interesting for you.
 
-HUGE's simple-as-possible architecture was inspired by several conference talks, slides and articles about huge 
+tickify's simple-as-possible architecture was inspired by several conference talks, slides and articles about tickify 
 applications that - surprisingly and intentionally - go back to the basics of programming, using procedural programming, 
 static classes, extremely simple constructs, not-totally-DRY code etc. while keeping the code extremely readable 
 ([StackOverflow](http://www.dev-metal.com/architecture-stackoverflow/), Wikipedia, SoundCloud).
@@ -27,14 +27,14 @@ Some interesting Buzzwords in this context: [KISS](http://en.wikipedia.org/wiki/
 [YAGNI](http://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it), [Feature Creep](https://en.wikipedia.org/wiki/Feature_creep),
 [Minimum viable product](https://en.wikipedia.org/wiki/Minimum_viable_product).
 
-#### HUGE has reached "soft End Of Life"
+#### tickify has reached "soft End Of Life"
 
-To keep this project stable, secure, clean and minimal I've decided to reduce the development of HUGE to a 
+To keep this project stable, secure, clean and minimal I've decided to reduce the development of tickify to a 
 minimum. *Don't worry, this is actually a good thing:* New features usually mean new bugs, lots of testing, fixes, 
-incompatibilities, and for some people even hardcore update stress. As HUGE is a security-critical script new features 
+incompatibilities, and for some people even hardcore update stress. As tickify is a security-critical script new features 
 are not as important as a stable and secure core, this is why people use it. This means:
 
-- HUGE will not get new features
+- tickify will not get new features
 - but will be maintained, so it will get bugfixes, corrections etc for sure, maybe for years
 
 And to be honest, maintaining a framework for free in my rare free-time is also not what I want to do permanently. :)
@@ -50,9 +50,9 @@ Chris
 
 #### Releases & development  
 
-* stable [v3.1](https://github.com/panique/huge/releases/tag/v3.1),
-* public beta branch: [master](https://github.com/panique/huge)
-* public in-development branch (please commit new code here): [develop](https://github.com/panique/huge/tree/develop)
+* stable [v3.1](https://github.com/panique/tickify/releases/tag/v3.1),
+* public beta branch: [master](https://github.com/panique/tickify)
+* public in-development branch (please commit new code here): [develop](https://github.com/panique/tickify/tree/develop)
 
 #### Quick-Index 
 
@@ -63,7 +63,7 @@ Chris
 + [License](#license)
 + [Requirements](#requirements)
 + [Auto-Installation](#auto-installation)
-    - [Auto-Installation in Vagrant](#auto-installation-vagrant) (also useful for 100% reproducible installation of HUGE)
+    - [Auto-Installation in Vagrant](#auto-installation-vagrant) (also useful for 100% reproducible installation of tickify)
     - [Auto-Installation in Ubuntu 14.04 LTS server](#auto-installation-ubuntu)
 + [Installation (Ubuntu 14.04 LTS)](#installation)
     - [Quick Installation](#quick-installation)
@@ -81,7 +81,7 @@ Chris
 + [Code-Quality scanner links](#code-quality)
 + [Report a bug](#bug-report)
 
-### The History of HUGE
+### The History of tickify
 
 Back in 2010/2011 there were no useful login solutions in the PHP world, at least not for non-experts. So I did the worst 
 mistake every young developer does: Trying to build something by myself without having any clue about security basics.
@@ -100,10 +100,10 @@ The result is this project.
  
 Please note: Now, in 2015, most major frameworks have excellent user authentication logic embedded by default. This was 
 not the case years ago. So, from today's perspective it might be smarter to chose Laravel, Yii or Symfony for serious
-projects. But feel free to try out HUGE, the auto-installer will spin up a fully working installation within minutes and
+projects. But feel free to try out tickify, the auto-installer will spin up a fully working installation within minutes and
 without any configuration.
 
-And why the name "HUGE" ? It's a nice combination to 
+And why the name "tickify" ? It's a nice combination to 
 [TINY](https://github.com/panique/tiny), 
 [MINI](https://github.com/panique/mini) and 
 [MINI2](https://github.com/panique/mini2),
@@ -144,8 +144,8 @@ See a [live demo of older 3.0 version here](http://104.131.8.128) and [the serve
 ### Support the project <a name="support"></a>
 
 There is a lot of work behind this project. I might save you hundreds, maybe thousands of hours of work (calculate that
-in developer costs). So when you are earning money by using HUGE, be fair and give something back to open-source.
-HUGE is totally free to private and commercial use.
+in developer costs). So when you are earning money by using tickify, be fair and give something back to open-source.
+tickify is totally free to private and commercial use.
 
 Support the project by renting a server at [DigitalOcean](https://www.digitalocean.com/?refcode=40d978532a20) or just tipping a coffee at BuyMeACoffee.com. Thanks! :)
 
@@ -183,7 +183,7 @@ If you are using Vagrant for your development, then simply
 2. Move *Vagrantfile* and *bootstrap.sh* (from *_one-click-installation* folder) to a folder where you want to initialize your project.
 3. Do `vagrant up` in that folder.
 
-5 minutes later you'll have a fully installed HUGE inside Ubuntu 14.04 LTS. The full code will be auto-synced with
+5 minutes later you'll have a fully installed tickify inside Ubuntu 14.04 LTS. The full code will be auto-synced with
 the current folder. MySQL root password and the PHPMyAdmin root password are set to *12345678*. By default
 192.168.33.111 is the IP of your new box.
 
@@ -193,7 +193,7 @@ Extremely simple installation in a fresh and naked typical Ubuntu 14.04 LTS serv
 
 Download the installer script
 ```bash
-wget https://raw.githubusercontent.com/panique/huge/master/_one-click-installation/bootstrap.sh
+wget https://raw.githubusercontent.com/panique/tickify/master/_one-click-installation/bootstrap.sh
 ```
 
 Make it executable
@@ -260,9 +260,9 @@ sudo apt-get -y install php5-gd
 sudo apt-get -y install git
 ```
 
-git clone HUGE
+git clone tickify
 ```bash
-sudo git clone https://github.com/panique/huge "/var/www/html"
+sudo git clone https://github.com/panique/tickify "/var/www/html"
 ```
 
 Install Composer
@@ -309,7 +309,7 @@ Then check your server's IP / domain. Everything should work fine.
 
 #### NGINX setup: <a name="nginx-setup"></a>
 
-This is an untested NGINX setup. Please comment [on the ticket](https://github.com/panique/huge/issues/622) if you see 
+This is an untested NGINX setup. Please comment [on the ticket](https://github.com/panique/tickify/issues/622) if you see 
 issues.
  
 ```
@@ -327,10 +327,10 @@ server {
     # your root
     root /srv/www/example.com/public_html;
 
-    # huge
+    # tickify
     index index.php;
 
-    # huge
+    # tickify
     location / {
         try_files $uri /index.php?url=$uri&$args;
     }
@@ -371,7 +371,7 @@ folder.
 </configuration>
 ```
 
-Find the original [ticket here](https://github.com/panique/huge/issues/788).
+Find the original [ticket here](https://github.com/panique/tickify/issues/788).
 
 #### Testing with demo users
 
@@ -423,13 +423,13 @@ registered users are normal users with user role 1 for sure.
 
 See the "Testing with demo users" section of this readme for more info.
 
-There's also a very interesting [pull request adding user roles and user permissions](https://github.com/panique/huge/pull/691),
+There's also a very interesting [pull request adding user roles and user permissions](https://github.com/panique/tickify/pull/691),
 which is not integrated into the project as it's too advanced and complex. But, this might be exactly what you need,
 feel free to try.
 
 #### How to use the CSRF feature <a name="csrf"></a>
  
-To prevent [CSRF attacks](https://en.wikipedia.org/wiki/Cross-site_request_forgery), HUGE does this in the most common 
+To prevent [CSRF attacks](https://en.wikipedia.org/wiki/Cross-site_request_forgery), tickify does this in the most common 
 way, by using a security *token* when the user submits critical forms. This means: When PHP renders a form for the user, 
 the application puts a "random string" inside the form (as a hidden input field), generated via Csrf::makeToken() 
 (application/core/Csrf.php), which also saves this token to the session. When the form is submitted, the application 
@@ -456,7 +456,7 @@ A big thanks to OmarElGabry for implementing this!
 #### Can a user be logged in from multiple devices ?
 
 In theory: Yes, but this feature didn't work in my tests. As it's an external feature please have a look into the 
-[according ticket](https://github.com/panique/huge/pull/693) for more.
+[according ticket](https://github.com/panique/tickify/pull/693) for more.
 
 #### Troubleshooting & Glitches
 
@@ -467,22 +467,22 @@ In theory: Yes, but this feature didn't work in my tests. As it's an external fe
   browsers.
 * Using this on a sub-domain ? You might get problems with the cookies in IE11. Fix this by replacing "/" with "./" of 
   the cookie location COOKIE_PATH inside application/config/config.xxx.php! 
-  Check [ticket #733](https://github.com/panique/huge/issues/733) for more info. Thanks to jahbiuabft for figuring this
-  out. Update: There's another ticket focusing on the same issue: [ticket #681](https://github.com/panique/huge/issues/681)
+  Check [ticket #733](https://github.com/panique/tickify/issues/733) for more info. Thanks to jahbiuabft for figuring this
+  out. Update: There's another ticket focusing on the same issue: [ticket #681](https://github.com/panique/tickify/issues/681)
  
 ### Community-provided features & feature discussions <a name="community"></a>
 
 There are some awesome features or feature ideas build by awesome people, but these features are too special-interest
-to go into the main version of HUGE, but have a look into these tickets if you are interested:
+to go into the main version of tickify, but have a look into these tickets if you are interested:
 
- - [Caching system](https://github.com/panique/huge/issues/643)
- - [ReCaptcha as captcha](https://github.com/panique/huge/issues/665)
- - [Internationalization feature](https://github.com/panique/huge/issues/582)
- - [Using controller A inside controller B](https://github.com/panique/huge/issues/706)
- - [HTML mails](https://github.com/panique/huge/issues/738)
- - [Deep user roles / user permission system](https://github.com/panique/huge/pull/691)
+ - [Caching system](https://github.com/panique/tickify/issues/643)
+ - [ReCaptcha as captcha](https://github.com/panique/tickify/issues/665)
+ - [Internationalization feature](https://github.com/panique/tickify/issues/582)
+ - [Using controller A inside controller B](https://github.com/panique/tickify/issues/706)
+ - [HTML mails](https://github.com/panique/tickify/issues/738)
+ - [Deep user roles / user permission system](https://github.com/panique/tickify/pull/691)
  
-### Future of HUGE: Announcing "soft End Of Life" <a name="future"></a>
+### Future of tickify: Announcing "soft End Of Life" <a name="future"></a>
  
 The idea of this project is and was to provide a super-simple barebone application with a full user authentication
 system inside that just works fine and stable. Due to the highly security-related nature of this script any changes 
@@ -493,12 +493,12 @@ the rare free-time :)
 To keep the project stable, clean and maintainable, I would kindly announce the "soft-End of Life" for this project, 
 meaning:
 
-A. HUGE will not get any new features in the future, but ...
+A. tickify will not get any new features in the future, but ...
 B. bugfixes and corrections will be made, probably for years
 
-### Coding guideline behind HUGE
+### Coding guideline behind tickify
 
-While HUGE was in development, there were 3 main rules that helped me (and probably others) to write minimal, clean
+While tickify was in development, there were 3 main rules that helped me (and probably others) to write minimal, clean
  and working code. Might be useful for you too:
 
 1. Reduce features to the bare minimum.
@@ -512,7 +512,7 @@ stuff: [KISS](http://en.wikipedia.org/wiki/KISS_principle),
  
 #### List of features / ideas provided in tickets / pull requests
 
-To avoid unnecessary work for all of us I would kindly recommend everybody to use HUGE for simple project that only
+To avoid unnecessary work for all of us I would kindly recommend everybody to use tickify for simple project that only
 need the features that already exist, and if you really need a RESTful architecture, migrations, routing, 2FA etc,
 then it's easier, cleaner and faster to simply use Laravel, Symfony or Zend.
 
@@ -521,24 +521,24 @@ into your forks of the project:
 
 * OAuth2 implementation (let your users create accounts and login via 3rd party auth, like Facebook, Twitter, GitHub, 
   etc). As this is a lot of work and would make the project much more complicated it might make sense to do this in a 
-  fork or totally skip it. (see [Ticket #528](https://github.com/panique/huge/issues/528))
-* Router (map all URLs to according controller-methods inside one file), [Ticket 727](https://github.com/panique/huge/issues/727)
-* RESTful architecture (see [ticket #488](https://github.com/panique/huge/issues/488) for discussion)
-* Horizontal MySQL scaling (see [ticket #423](https://github.com/panique/huge/issues/423) for discussion)
+  fork or totally skip it. (see [Ticket #528](https://github.com/panique/tickify/issues/528))
+* Router (map all URLs to according controller-methods inside one file), [Ticket 727](https://github.com/panique/tickify/issues/727)
+* RESTful architecture (see [ticket #488](https://github.com/panique/tickify/issues/488) for discussion)
+* Horizontal MySQL scaling (see [ticket #423](https://github.com/panique/tickify/issues/423) for discussion)
 * Modules / middleware
 * Logging
-* Two-Factor-Authentication (see [ticket #732](https://github.com/panique/huge/issues/732))
-* Controller-less URLs (see [ticket #704](https://github.com/panique/huge/issues/704))
-* Email-re-validation after email change (see [ticket #705](https://github.com/panique/huge/issues/705))
-* Connect to multiple databases (see [ticket #702](https://github.com/panique/huge/issues/702))
-* A deeper user role system (see [ticket #701](https://github.com/panique/huge/issues/701), 
-[pull-request #691](https://github.com/panique/huge/pull/691)), 
-[ticket #603](https://github.com/panique/huge/issues/603)
-* How to run without using Composer [ticket #826](https://github.com/panique/huge/issues/826)
+* Two-Factor-Authentication (see [ticket #732](https://github.com/panique/tickify/issues/732))
+* Controller-less URLs (see [ticket #704](https://github.com/panique/tickify/issues/704))
+* Email-re-validation after email change (see [ticket #705](https://github.com/panique/tickify/issues/705))
+* Connect to multiple databases (see [ticket #702](https://github.com/panique/tickify/issues/702))
+* A deeper user role system (see [ticket #701](https://github.com/panique/tickify/issues/701), 
+[pull-request #691](https://github.com/panique/tickify/pull/691)), 
+[ticket #603](https://github.com/panique/tickify/issues/603)
+* How to run without using Composer [ticket #826](https://github.com/panique/tickify/issues/826)
 
 ### Why is there no support forum (anymore) ? <a name="why-no-support-forum"></a>
 
-There were two (!) support forums for v1 and v2 of this project (HUGE is v3), and both were vandalized by people who
+There were two (!) support forums for v1 and v2 of this project (tickify is v3), and both were vandalized by people who
 didn't even read the readme and / or the install guidelines. Most asked question was "script does not work plz help"
 without giving any useful information (like code or server setup or even the version used). While I'm writing these 
 lines somebody just asked via Twitter "how to install without Composer". You know what I mean :) - 99% of the questions 
@@ -576,9 +576,9 @@ Please commit only in *develop* branch. The *master* branch will always contain 
 
 ### Code-Quality scanner links <a name="code-quality"></a>
 
-[Scrutinizer (master branch)](https://scrutinizer-ci.com/g/panique/huge/?branch=master),
-[Scrutinizer (develop branch)](https://scrutinizer-ci.com/g/panique/huge/?branch=develop),
-[Code Climate](https://codeclimate.com/github/panique/huge),
+[Scrutinizer (master branch)](https://scrutinizer-ci.com/g/panique/tickify/?branch=master),
+[Scrutinizer (develop branch)](https://scrutinizer-ci.com/g/panique/tickify/?branch=develop),
+[Code Climate](https://codeclimate.com/github/panique/tickify),
 [Codacy](https://www.codacy.com/public/panique/phplogin/dashboard?bid=789836), 
 [SensioLabs Insight](https://insight.sensiolabs.com/projects/d4f4e3c0-1445-4245-8cb2-d75026c11fa7/analyses/2).
 
@@ -591,7 +591,7 @@ an normal GitHub issue.
 ### Current and further development
 
 See active issues here:
-https://github.com/panique/huge/issues?state=open
+https://github.com/panique/tickify/issues?state=open
 
 ### Why you should use a favicon.ico in your project :)
 
@@ -600,9 +600,9 @@ Interesting issue: When a user hits your website, the user's browser will also r
 page for each file. This wastes a lot of server power and is also useless, therefore make sure you always have favicons
 or handle this from Apache/nginx level.
 
-HUGE tries to handle this by sending an empty image in the head of the view/_templates/header.php !
+tickify tries to handle this by sending an empty image in the head of the view/_templates/header.php !
 
-More inside this ticket: [Return proper 404 for missing favicon.ico, missing images etc.](https://github.com/panique/huge/issues/530)
+More inside this ticket: [Return proper 404 for missing favicon.ico, missing images etc.](https://github.com/panique/tickify/issues/530)
 
 More here on Stackflow: [How to prevent favicon.ico requests?](http://stackoverflow.com/questions/1321878/how-to-prevent-favicon-ico-requests),
 [Isn't it silly that a tiny favicon requires yet another HTTP request? How to make favicon go into a sprite?](http://stackoverflow.com/questions/5199902/isnt-it-silly-that-a-tiny-favicon-requires-yet-another-http-request-how-to-mak?lq=1).
@@ -615,15 +615,15 @@ More here on Stackflow: [How to prevent favicon.ico requests?](http://stackoverf
 - [A short guideline on how to use the PHP 5.5 password hashing functions and its PHP 5.3 & 5.4 implementations](http://www.dev-metal.com/use-php-5-5-password-hashing-functions/)
 - [How to setup latest version of PHP 5.5 on Ubuntu 12.04 LTS](http://www.dev-metal.com/how-to-setup-latest-version-of-php-5-5-on-ubuntu-12-04-lts/)
 - [How to setup latest version of PHP 5.5 on Debian Wheezy 7.0/7.1 (and how to fix the GPG key error)](http://www.dev-metal.com/setup-latest-version-php-5-5-debian-wheezy-7-07-1-fix-gpg-key-error/)
-- [Notes on password & hashing salting in upcoming PHP versions (PHP 5.5.x & 5.6 etc.)](https://github.com/panique/huge/wiki/Notes-on-password-&-hashing-salting-in-upcoming-PHP-versions-%28PHP-5.5.x-&-5.6-etc.%29)
-- [Some basic "benchmarks" of all PHP hash/salt algorithms](https://github.com/panique/huge/wiki/Which-hashing-&-salting-algorithm-should-be-used-%3F)
+- [Notes on password & hashing salting in upcoming PHP versions (PHP 5.5.x & 5.6 etc.)](https://github.com/panique/tickify/wiki/Notes-on-password-&-hashing-salting-in-upcoming-PHP-versions-%28PHP-5.5.x-&-5.6-etc.%29)
+- [Some basic "benchmarks" of all PHP hash/salt algorithms](https://github.com/panique/tickify/wiki/Which-hashing-&-salting-algorithm-should-be-used-%3F)
 - [How to prevent PHP sessions being shared between different apache vhosts / different applications](http://www.dev-metal.com/prevent-php-sessions-shared-different-apache-vhosts-different-applications/)
 
 ## Interesting links regarding user authentication and application security
 
 - [interesting article about password resets (by Troy Hunt, security expert)](http://www.troyhunt.com/2012/05/everything-you-ever-wanted-to-know.html)
-- Password-Free Email Logins: [Ticket & discussion](https://github.com/panique/huge/issues/674), [article](http://techcrunch.com/2015/06/30/blogging-site-medium-rolls-out-password-free-email-logins/?ref=webdesignernews.com)
-- Logging in via QR code: [Ticket & discussion](https://github.com/panique/huge/issues/290), [english article](https://www.grc.com/sqrl/sqrl.htm), 
+- Password-Free Email Logins: [Ticket & discussion](https://github.com/panique/tickify/issues/674), [article](http://techcrunch.com/2015/06/30/blogging-site-medium-rolls-out-password-free-email-logins/?ref=webdesignernews.com)
+- Logging in via QR code: [Ticket & discussion](https://github.com/panique/tickify/issues/290), [english article](https://www.grc.com/sqrl/sqrl.htm), 
   [german article](http://www.phpgangsta.de/sesam-oeffne-dich-sicher-einloggen-im-internetcafe), 
   [repo](https://github.com/PHPGangsta/Sesame), [live-demo](http://sesame.phpgangsta.de/). Big thanks to *PHPGangsta* for writing this!
   

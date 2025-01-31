@@ -59,8 +59,8 @@ sudo apt-get -y install php5-gd
 # install git
 sudo apt-get -y install git
 
-# git clone HUGE
-sudo git clone https://github.com/panique/huge "/var/www/html/${PROJECTFOLDER}"
+# git clone tickify
+sudo git clone https://github.com/panique/tickify "/var/www/html/${PROJECTFOLDER}"
 
 # install Composer
 curl -s https://getcomposer.org/installer | php

@@ -1,4 +1,4 @@
-# This file just tells the wonderful code quality analyzer Scrutinizer (https://scrutinizer-ci.com/g/panique/huge/)
+# This file just tells the wonderful code quality analyzer Scrutinizer (https://scrutinizer-ci.com/g/panique/tickify/)
 # that we are using external services (Travis) to generate code coverage stats
 checks:
     php:

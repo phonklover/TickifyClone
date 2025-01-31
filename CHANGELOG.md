@@ -5,15 +5,15 @@ master branch, for really stable stuff check the releases (the ones that have a 
 
 ## master branch
 
-- [slaveek/panique] [PR](https://github.com/panique/huge/pull/773) [#770] fix for sending user back to last visited page after login
-- [slaveek] [PR](https://github.com/panique/huge/pull/815) lots of code styling fixes 
-- [panique] [#729] Fix, mail sending now returns true or false success status (https://github.com/panique/huge/issues/729)
-- [OmarElGabry] [PR](https://github.com/panique/huge/pull/693) session id regeneration in certain situations
-- [OmarElGabry] [PR](https://github.com/panique/huge/pull/693) encrypted cookies
-- [OmarElGabry] [PR](https://github.com/panique/huge/pull/693) new encryption class
-- [OmarElGabry] [PR](https://github.com/panique/huge/pull/693) anti-CSRF feature (used in login and username change forms) 
-- [josh-bridge] [PR](https://github.com/panique/huge/pull/689) logged-in user can now change password
-- [justincdotme] [PR](https://github.com/panique/huge/pull/684) better code for brute-force blocking when logging in
+- [slaveek/panique] [PR](https://github.com/panique/tickify/pull/773) [#770] fix for sending user back to last visited page after login
+- [slaveek] [PR](https://github.com/panique/tickify/pull/815) lots of code styling fixes 
+- [panique] [#729] Fix, mail sending now returns true or false success status (https://github.com/panique/tickify/issues/729)
+- [OmarElGabry] [PR](https://github.com/panique/tickify/pull/693) session id regeneration in certain situations
+- [OmarElGabry] [PR](https://github.com/panique/tickify/pull/693) encrypted cookies
+- [OmarElGabry] [PR](https://github.com/panique/tickify/pull/693) new encryption class
+- [OmarElGabry] [PR](https://github.com/panique/tickify/pull/693) anti-CSRF feature (used in login and username change forms) 
+- [josh-bridge] [PR](https://github.com/panique/tickify/pull/689) logged-in user can now change password
+- [justincdotme] [PR](https://github.com/panique/tickify/pull/684) better code for brute-force blocking when logging in
 - [panique] soft autoinstaller improvements
 - [panique] updated dependencies to current versions
 - [Kent55/panique] XSS protection filter
@@ -26,11 +26,11 @@ master branch, for really stable stuff check the releases (the ones that have a 
 - [sandropons] anti-brute-force feature for login process
 - [panique] removed old Facebook texts (as Login-via-Facebook feature was removed since 3.0)
 - [oisian/ldmusic] [#608] Deletion / suspension of users, Admin menu
-- [panique] [#654](https://github.com/panique/huge/issues/654) little frontend navi bug fixed
-- [Dominic28] [PR](https://github.com/panique/huge/pull/645) added checkboxes to request class
-- [Dominic28] [PR](https://github.com/panique/huge/pull/644) code style fixes
-- [M0ritzWeide] [PR](https://github.com/panique/huge/pull/635) added browser caching
-- [modInfo/panique] [PR](https://github.com/panique/huge/pull/647) added missing view table column  
+- [panique] [#654](https://github.com/panique/tickify/issues/654) little frontend navi bug fixed
+- [Dominic28] [PR](https://github.com/panique/tickify/pull/645) added checkboxes to request class
+- [Dominic28] [PR](https://github.com/panique/tickify/pull/644) code style fixes
+- [M0ritzWeide] [PR](https://github.com/panique/tickify/pull/635) added browser caching
+- [modInfo/panique] [PR](https://github.com/panique/tickify/pull/647) added missing view table column  
 
 ## 3.1
 
@@ -39,9 +39,9 @@ Code Quality at Scrutinizer 9.7/10, at Code Climate 3.9/4
 **February 2015**
 
 - [panique] several code quality improvements (and line reductions :) ) all over the project
-- [PR](https://github.com/panique/huge/pull/620) [owenr88] view rending now possible with multiple view files
+- [PR](https://github.com/panique/tickify/pull/620) [owenr88] view rending now possible with multiple view files
 - [panique] lots of code refactorings and simplifications all over the project
-- [PR](https://github.com/panique/huge/pull/615) [Dominic28] Avatar can now be deleted by the user
+- [PR](https://github.com/panique/tickify/pull/615) [Dominic28] Avatar can now be deleted by the user
 - [panique] First Unit tests :)
 - [panique] several code quality improvements all over the project
 - [panique] avatarModel code improvements
@@ -54,7 +54,7 @@ Code Quality at Scrutinizer 9.3/10, at Code Climate 3.9/4
 **February 2015**
 
 - [panique] removed duplicate code in AccountTypeModel
-- [PR](https://github.com/panique/huge/pull/587) [upperwood] Facebook stuff completely removed from SQL
+- [PR](https://github.com/panique/tickify/pull/587) [upperwood] Facebook stuff completely removed from SQL
 - [panique] tiny text changes
 
 **January 2015**

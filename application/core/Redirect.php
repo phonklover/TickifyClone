@@ -13,7 +13,7 @@ class Redirect
      *
      * This is just a bulletproof version of Redirect::to(), redirecting to an ABSOLUTE URL path like
      * "http://www.mydomain.com/user/profile", useful as people had problems with the RELATIVE URL path generated
-     * by Redirect::to() when using HUGE inside sub-folders.
+     * by Redirect::to() when using tickify inside sub-folders.
      *
      * @param $path string
      */
@@ -33,11 +33,11 @@ class Redirect
     /**
      * To the defined page, uses a relative path (like "user/profile")
      *
-     * Redirects to a RELATIVE path, like "user/profile" (which works very fine unless you are using HUGE inside tricky
+     * Redirects to a RELATIVE path, like "user/profile" (which works very fine unless you are using tickify inside tricky
      * sub-folder structures)
      *
-     * @see https://github.com/panique/huge/issues/770
-     * @see https://github.com/panique/huge/issues/754
+     * @see https://github.com/panique/tickify/issues/770
+     * @see https://github.com/panique/tickify/issues/754
      *
      * @param $path string
      */
