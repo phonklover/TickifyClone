@@ -1,5 +1,6 @@
 
 <?php
+require_once __DIR__ . '/../core/Environment.php';
 require_once __DIR__ . '/../core/DatabaseFactory.php';
 require_once __DIR__ . '/../core/Config.php';
 
