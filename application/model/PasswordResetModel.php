@@ -193,7 +193,7 @@ class PasswordResetModel
 
     /**
      * Set the new password (for DEFAULT user, FACEBOOK-users don't have a password)
-     * Please note: At this point the user has already pre-verified via verifyPasswordReset() (within one hour),
+     * Please ticket: At this point the user has already pre-verified via verifyPasswordReset() (within one hour),
      * so we don't need to check again for the 60min-limit here. In this method we authenticate
      * via username & password-reset-hash from (hidden) form fields.
      *

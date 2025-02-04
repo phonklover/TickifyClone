@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>NoteController/index</h1>
+    <h1><Tickets></Tickets></h1>
     <div class="box">
 
         <!-- echo out the system feedback (error and success messages) -->
@@ -31,8 +31,8 @@
                         <tr>
                             <td><?= $value->note_id; ?></td>
                             <td><?= htmlentities($value->note_text); ?></td>
-                            <td><a href="<?= Config::get('URL') . 'note/edit/' . $value->note_id; ?>">Edit</a></td>
-                            <td><a href="<?= Config::get('URL') . 'note/delete/' . $value->note_id; ?>">Delete</a></td>
+                            <td><a href="<?= Config::get('URL') . 'ticket/edit/' . $value->note_id; ?>">Edit</a></td>
+                            <td><a href="<?= Config::get('URL') . 'ticket/delete/' . $value->note_id; ?>">Delete</a></td>
                         </tr>
                     <?php } ?>
                 </tbody>

@@ -131,7 +131,7 @@ class LoginController extends Controller
 
     /**
      * Set the new password
-     * Please note that this happens while the user is not logged in. The user identifies via the data provided by the
+     * Please ticket that this happens while the user is not logged in. The user identifies via the data provided by the
      * password reset link from the email, automatically filled into the <form> fields. See verifyPasswordReset()
      * for more. Then (regardless of result) route user to index page (user will get success/error via feedback message)
      * POST request !

@@ -15,7 +15,7 @@ class Mail
 
     /**
      * Try to send a mail by using PHP's native mail() function.
-     * Please note that not PHP itself will send a mail, it's just a wrapper for Linux's sendmail or other mail tools
+     * Please ticket that not PHP itself will send a mail, it's just a wrapper for Linux's sendmail or other mail tools
      *
      * Good guideline on how to send mails natively with mail():
      * @see http://stackoverflow.com/a/24644450/1114320

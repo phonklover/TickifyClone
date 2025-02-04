@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Admin/index</h1>
+    <h1>Admin Panel</h1>
 
     <div class="box">
 

@@ -23,8 +23,8 @@ class NoteModel
     }
 
     /**
-     * Get a single note
-     * @param int $note_id id of the specific note
+     * Get a single ticket
+     * @param int $note_id id of the specific ticket
      * @return object a single object (the result)
      */
     public static function getNote($note_id)
@@ -40,9 +40,9 @@ class NoteModel
     }
 
     /**
-     * Set a note (create a new one)
-     * @param string $note_text note text that will be created
-     * @return bool feedback (was the note created properly ?)
+     * Set a ticket (create a new one)
+     * @param string $note_text ticket text that will be created
+     * @return bool feedback (was the ticket created properly ?)
      */
     public static function createNote($note_text)
     {
@@ -67,9 +67,9 @@ class NoteModel
     }
 
     /**
-     * Update an existing note
-     * @param int $note_id id of the specific note
-     * @param string $note_text new text of the specific note
+     * Update an existing ticket
+     * @param int $note_id id of the specific ticket
+     * @param string $note_text new text of the specific ticket
      * @return bool feedback (was the update successful ?)
      */
     public static function updateNote($note_id, $note_text)
@@ -93,9 +93,9 @@ class NoteModel
     }
 
     /**
-     * Delete a specific note
-     * @param int $note_id id of the note
-     * @return bool feedback (was the note deleted properly ?)
+     * Delete a specific ticket
+     * @param int $note_id id of the ticket
+     * @return bool feedback (was the ticket deleted properly ?)
      */
     public static function deleteNote($note_id)
     {

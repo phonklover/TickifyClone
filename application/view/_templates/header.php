@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>tickify</title>
+    <title>Tickify</title>
     <!-- META -->
     <meta charset="utf-8">
     <!-- send empty favicon fallback to prevent user's browser hitting the server for lots of favicon requests resulting in 404s -->
@@ -12,10 +12,6 @@
 <body>
     <!-- wrapper, to center website -->
     <div class="wrapper">
-
-        <!-- logo -->
-        <div class="logo"></div>
-
         <!-- navigation -->
         <ul class="navigation">
             <li <?php if (View::checkForActiveController($filename, "index")) { echo ' class="active" '; } ?> >
@@ -28,8 +24,8 @@
                 <li <?php if (View::checkForActiveController($filename, "dashboard")) { echo ' class="active" '; } ?> >
                     <a href="<?php echo Config::get('URL'); ?>dashboard/index">Dashboard</a>
                 </li>
-                <li <?php if (View::checkForActiveController($filename, "note")) { echo ' class="active" '; } ?> >
-                    <a href="<?php echo Config::get('URL'); ?>note/index">My Notes</a>
+                <li <?php if (View::checkForActiveController($filename, "ticket")) { echo ' class="active" '; } ?> >
+                    <a href="<?php echo Config::get('URL'); ?>ticket/index">Ticket List</a>
                 </li>
             <?php } else { ?>
                 <!-- for not logged in users -->
@@ -46,7 +42,7 @@
         <ul class="navigation right">
         <?php if (Session::userIsLoggedIn()) : ?>
             <li <?php if (View::checkForActiveController($filename, "user")) { echo ' class="active" '; } ?> >
-                <a href="<?php echo Config::get('URL'); ?>user/index">My Account</a>
+                <a href="<?php echo Config::get('URL'); ?>user/index">Settings</a>
                 <ul class="navigation-submenu">
                     <li <?php if (View::checkForActiveController($filename, "user")) { echo ' class="active" '; } ?> >
                         <a href="<?php echo Config::get('URL'); ?>user/changeUserRole">Change account type</a>
