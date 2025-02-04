@@ -1,0 +1,27 @@
+Executed SQL file: C:\wamp64\www\TickifyClone\TickifyClone\application\_installation/01-create-database.sql Executed SQL file: C:\wamp64\www\TickifyClone\TickifyClone\application\_installation/02-create-table-users.sql Executed SQL file: C:\wamp64\www\TickifyClone\TickifyClone\application\_installation/03-create-table-notes.sql
+( ! ) Warning: PDO::exec(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci CO' at line 4 in C:\wamp64\www\TickifyClone\TickifyClone\application\_installation\init_database.php on line 18
+Call Stack
+#	Time	Memory	Function	Location
+1	0.0001	451112	{main}( )	...\index.php:0
+2	0.0004	540408	Application->__construct( )	...\index.php:17
+3	0.0004	541008	require( 'C:\wamp64\www\TickifyClone\TickifyClone\application\_installation\init_database.php )	...\Application.php:28
+4	0.1036	591752	executeSQLFile( $filePath = 'C:\\wamp64\\www\\TickifyClone\\TickifyClone\\application\\_installation/04-changes-in-db.sql' )	...\init_database.php:35
+5	0.1095	593448	exec( $statement = 'CREATE TABLE IF NOT EXISTS `tickify`.`users` (`user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT \'auto incrementing user_id of each user, unique index\',\r\n `session_id` varchar(48) DEFAULT NULL COMMENT \'stores session cookie id to prevent session concurrency\',\r\n\r\n ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT=\'changes\';\r\n\r\nINSERT INTO `tickify`.`users` (`user_id`, `session_id`, `user_name`, `user_password_hash`, `user_email`, `user_active`, `user_deleted`, `user_a'... )	...\init_database.php:18
+Executed SQL file: C:\wamp64\www\TickifyClone\TickifyClone\application\_installation/04-changes-in-db.sql Executed SQL file: C:\wamp64\www\TickifyClone\TickifyClone\application\_installation/05-create-initial-accounts.sql Database initialization complete!
+( ! ) Warning: session_start(): Session cannot be started after headers have already been sent in C:\wamp64\www\TickifyClone\TickifyClone\application\core\Session.php on line 18
+Call Stack
+#	Time	Memory	Function	Location
+1	0.0001	451112	{main}( )	...\index.php:0
+2	0.0004	540408	Application->__construct( )	...\index.php:17
+3	0.1616	593720	IndexController->__construct( )	...\Application.php:43
+4	0.1616	593720	Controller->__construct( )	...\IndexController.php:10
+5	0.1839	594456	Session::init( )	...\Controller.php:21
+6	0.1839	594456	session_start( )	...\Session.php:18
+Index
+Login
+Register
+Tickify
+Crete New Ticket
+What happens here ?
+Display Tickets from user that are still in progress and show some stats or something likt that
+Display how many tickets did user create and how many have been resolved and how many are in progress
