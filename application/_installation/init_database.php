@@ -1,7 +1,7 @@
 
 <?php
-require_once '../core/DatabaseFactory.php';
-require_once '../core/Config.php';
+require_once __DIR__ . '/../core/DatabaseFactory.php';
+require_once __DIR__ . '/../core/Config.php';
 
 function executeSQLFile($filePath) {
     $db = DatabaseFactory::getFactory()->getConnection();
