@@ -14,7 +14,7 @@ function executeSQLFile($filePath) {
             $db = DatabaseFactory::getFactory()->getConnection();
         }
         
-        $sql = file_get_contents($filePath);A
+        $sql = file_get_contents($filePath);
         $db->exec($sql);
         echo "Executed SQL file: " . $filePath . "\n";
     } catch (PDOException $e) {
