@@ -5,10 +5,16 @@ require_once __DIR__ . '/../core/DatabaseFactory.php';
 require_once __DIR__ . '/../core/Config.php';
 
 function executeSQLFile($filePath) {
-    $db = DatabaseFactory::getFactory()->getConnection();
-    
     try {
-        $sql = file_get_contents($filePath);
+        // For the first file (database creation), connect without database name
+        if (strpos($filePath, '01-create-database.sql') !== false) {
+            $dsn = Config::get('DB_TYPE') . ':host=' . Config::get('DB_HOST') . ';port=' . Config::get('DB_PORT');
+            $db = new PDO($dsn, Config::get('DB_USER'), Config::get('DB_PASS'));
+        } else {
+            $db = DatabaseFactory::getFactory()->getConnection();
+        }
+        
+        $sql = file_get_contents($filePath);A
         $db->exec($sql);
         echo "Executed SQL file: " . $filePath . "\n";
     } catch (PDOException $e) {
