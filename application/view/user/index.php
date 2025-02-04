@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>UserController/showProfile</h1>
+    <h1>Settings</h1>
 
     <div class="box">
         <h2>Your profile</h2>

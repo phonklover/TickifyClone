@@ -17,9 +17,7 @@
             <li <?php if (View::checkForActiveController($filename, "index")) { echo ' class="active" '; } ?> >
                 <a href="<?php echo Config::get('URL'); ?>index/index">Index</a>
             </li>
-            <li <?php if (View::checkForActiveController($filename, "profile")) { echo ' class="active" '; } ?> >
-                <a href="<?php echo Config::get('URL'); ?>profile/index">Profiles</a>
-            </li>
+
             <?php if (Session::userIsLoggedIn()) { ?>
                 <li <?php if (View::checkForActiveController($filename, "dashboard")) { echo ' class="active" '; } ?> >
                     <a href="<?php echo Config::get('URL'); ?>dashboard/index">Dashboard</a>
@@ -70,6 +68,14 @@
                 } ?> >
                     <a href="<?php echo Config::get('URL'); ?>admin/">Admin</a>
                 </li>
+
+            <?php if (Session::userIsLoggedIn()) { ?>
+                <li <?php if (View::checkForActiveController($filename, "profile")) { echo ' class="active" '; } ?> >
+                    <a href="<?php echo Config::get('URL'); ?>profile/index">Profiles</a>
+                </li>
+
+                <?php } ?>
+
             <?php endif; ?>
         <?php endif; ?>
         </ul>

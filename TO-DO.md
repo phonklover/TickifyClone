@@ -2,14 +2,14 @@
 ## Tickify
 
 # Adnan Bajric
-- Placeholder
-- Placeholder
-- Placeholder
-- Placeholder
+- Views
+- Controller
+- Models
+- Simple HTML
+- AI Implemenation mit Ollama
 
 ## Laurentiu Iordachi
-
-- Placeholder
+- DESIGN
 - Placeholder
 - Placeholder
 - Placeholder
