@@ -3,11 +3,12 @@
 
 # Adnan Bajric
 ---
-Datum|AP NR| Zeitraum    |Aufwand|Ort| Tätigkeit                           | Probleme            |Quellen
------|-----|-------------|-------|---|-------------------------------------|---------------------|-------
-4.2.2025|1.1| 10:00-12:20  |2h15min|LBS| Ideenfindung, Backend Prep, Commits | / | /
-1.1.2023|1.1| 10:00-12:20 |2h15min|LBS| Ideenfindung                        | mir fällt nichts ein |[Projektmanagement](https://de.wikipedia.org/wiki/Projektmanagement)
-1.1.2023|1.1| 7:30-10:00  |2h15min|LBS| Ideenfindung                        | mir fällt nichts ein |[Projektmanagement](https://de.wikipedia.org/wiki/Projektmanagement)
+Datum|AP NR| Zeitraum    | Aufwand |Ort| Tätigkeit                                   | Probleme            |Quellen
+-----|-----|-------------|--------|---|---------------------------------------------|---------------------|-------
+4.2.2025|1.1| 10:00-12:20 | 2h15min |LBS| Ideenfindung, Backend Prep, Commits         | / | /
+4.2.2025|1.1| 13:20-16:25 | 3h5min |LBS| Ollama Local Implementiert mit chat History | / | [Ollama API](https://github.com/ollama/ollama/blob/main/docs/api.md)
+1.1.2023|1.1| 10:00-12:20 | 2h15min |LBS| Ideenfindung                                | mir fällt nichts ein |[Projektmanagement](https://de.wikipedia.org/wiki/Projektmanagement)
+1.1.2023|1.1| 7:30-10:00  | 2h15min |LBS| Ideenfindung                                | mir fällt nichts ein |[Projektmanagement](https://de.wikipedia.org/wiki/Projektmanagement)
 
 
 ## Laurentiu Iordachi
