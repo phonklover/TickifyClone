@@ -8,8 +8,8 @@ function executeSQLFile($filePath) {
     try {
         // For the first file (database creation), connect without database name
         if (strpos($filePath, '01-create-database.sql') !== false) {
-            $dsn = Config::get('DB_TYPE') . ':host=' . Config::get('DB_HOST') . ';port=' . Config::get('DB_PORT');
-            $db = new PDO($dsn, Config::get('DB_USER'), Config::get('DB_PASS'));
+            $dsn = 'mysql:host=127.0.0.1;port=3306';
+            $db = new PDO($dsn, 'root', '');
         } else {
             $db = DatabaseFactory::getFactory()->getConnection();
         }
