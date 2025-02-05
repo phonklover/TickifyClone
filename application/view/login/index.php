@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,78 +7,69 @@
     <link rel="stylesheet" href="<?php echo Config::get('URL'); ?>css/output.css" />
 </head>
 <body class="bg-gray-50">
-    <div class="flex min-h-screen flex-col justify-center px-6 py-12 lg:px-8">
-        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-            <img class="mx-auto h-10 w-auto" src="https://tailwindui.com/img/logos/mark.svg" alt="Tickify">
-            <h2 class="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in to your account</h2>
+<div class="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-md">
+    <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
+    <p class="mt-2 text-center text-sm text-gray-600">
+      Not a member yet? 
+      <a href="<?php echo Config::get('URL'); ?>register/index" class="font-medium text-indigo-600 hover:text-indigo-500">Register here</a>
+    </p>
+  </div>
+
+  <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+      <form class="space-y-6" action="<?php echo Config::get('URL'); ?>login/login" method="post">
+        <div>
+          <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+          <div class="mt-1">
+            <input id="username" name="user_name" type="text" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+          </div>
         </div>
 
-        <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <?php $this->renderFeedbackMessages(); ?>
-            
-            <form class="space-y-6" action="<?php echo Config::get('URL'); ?>login/login" method="post">
-                <div>
-                    <label for="user_name" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
-                    <div class="mt-2">
-                        <input id="user_name" name="user_name" type="text" required 
-                               class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                               placeholder="Enter your username" />
-                    </div>
-                </div>
-
-                <div>
-                    <div class="flex items-center justify-between">
-                        <label for="user_password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
-                    </div>
-                    <div class="mt-2 relative">
-                        <input id="user_password" name="user_password" type="password" required 
-                               class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                               placeholder="Enter your password" />
-                        <button type="button" onclick="togglePassword()" class="absolute inset-y-0 right-0 pr-3 flex items-center">
-                            <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center">
-                        <input type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" name="remember_me">
-                        <label class="ml-2 block text-sm text-gray-900">Remember me</label>
-                    </div>
-
-                    <div class="text-sm">
-                        <a href="<?php echo Config::get('URL'); ?>login/requestPasswordReset" class="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
-                    </div>
-                </div>
-
-                <div>
-                    <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                        Sign in
-                    </button>
-                </div>
-            </form>
-
-            <p class="mt-10 text-center text-sm text-gray-500">
-                Not a member yet?
-                <a href="<?php echo Config::get('URL'); ?>register" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Register here</a>
-            </p>
+        <div>
+          <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+          <div class="mt-1">
+            <input id="password" name="user_password" type="password" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+          </div>
         </div>
+
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <input id="remember_me" name="set_remember_me_cookie" type="checkbox" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+            <label for="remember_me" class="ml-2 block text-sm text-gray-900">Remember me</label>
+          </div>
+
+          <div class="text-sm">
+            <a href="<?php echo Config::get('URL'); ?>login/requestPasswordReset" class="font-medium text-indigo-600 hover:text-indigo-500">Forgot password?</a>
+          </div>
+        </div>
+
+        <div>
+          <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            Sign in
+          </button>
+        </div>
+
+        <input type="hidden" name="csrf_token" value="<?= Csrf::makeToken(); ?>" />
+      </form>
     </div>
+  </div>
+</div>
 
-    <script>
+<script>
+document.querySelector('form').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    this.submit();
+  }
+});
+</script>
+
+<script>
         function togglePassword() {
-            const passwordInput = document.getElementById('user_password');
+            const passwordInput = document.getElementById('password');
             passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
         }
-
-        document.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                document.querySelector('form').submit();
-            }
-        });
     </script>
 </body>
 </html>
