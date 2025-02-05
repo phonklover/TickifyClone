@@ -1,10 +1,8 @@
-
 {
-  "name": "tickify",
+  "name": "php-login",
   "version": "1.0.0",
-  "description": "Ticketing system",
   "scripts": {
-    "dev": "npx tailwindcss -i ./public/css/tailwind.css -o ./public/css/style.css --watch"
+    "build:css": "tailwindcss -i ./public/css/style.css -o ./public/css/output.css --watch"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.1",
