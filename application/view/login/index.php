@@ -67,10 +67,13 @@ function togglePassword() {
     passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
 }
 
-document.getElementById('loginForm').addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-        e.preventDefault();
-        this.submit();
-    }
+// Handle Enter key press on input fields
+document.querySelectorAll('#loginForm input').forEach(input => {
+    input.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            document.getElementById('loginForm').submit();
+        }
+    });
 });
 </script>
