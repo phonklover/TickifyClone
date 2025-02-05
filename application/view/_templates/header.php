@@ -29,9 +29,6 @@
                                 <a href="<?php echo Config::get('URL'); ?>login/logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
                             </div>
                         </div>
-                    <?php } else { ?>
-                        <a href="<?php echo Config::get('URL'); ?>login/index" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500">Sign in</a>
-                        <a href="<?php echo Config::get('URL'); ?>register/index" class="ml-3 rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">Register</a>
                     <?php } ?>
                 </div>
             </div>
