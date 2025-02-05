@@ -2,7 +2,8 @@
   "name": "php-login",
   "version": "1.0.0",
   "scripts": {
-    "build:css": "tailwindcss -i ./public/css/style.css -o ./public/css/output.css --watch"
+    "build:css": "tailwindcss -i ./public/css/style.css -o ./public/css/output.css --watch",
+    "dev": "php -S 0.0.0.0:8080 -t public"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.1",
