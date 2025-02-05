@@ -38,15 +38,15 @@ class LoginController extends Controller
         try {
             // check if csrf token is valid
             if (!Csrf::isTokenValid()) {
-            LoginModel::logout();
-            Redirect::home();
-            exit();
-        }
+                LoginModel::logout();
+                Redirect::home();
+                exit();
+            }
 
-        // perform the login method, put result (true or false) into $login_successful
-        $login_successful = LoginModel::login(
-            Request::post('user_name'), Request::post('user_password'), Request::post('set_remember_me_cookie')
-        );
+            // perform the login method, put result (true or false) into $login_successful
+            $login_successful = LoginModel::login(
+                Request::post('user_name'), Request::post('user_password'), Request::post('set_remember_me_cookie')
+            );
 
         // check login status: if true, then redirect user to user/index, if false, then to login form again
         if ($login_successful) {
