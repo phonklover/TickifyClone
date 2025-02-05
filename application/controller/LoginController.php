@@ -35,8 +35,9 @@ class LoginController extends Controller
      */
     public function login()
     {
-        // check if csrf token is valid
-        if (!Csrf::isTokenValid()) {
+        try {
+            // check if csrf token is valid
+            if (!Csrf::isTokenValid()) {
             LoginModel::logout();
             Redirect::home();
             exit();
