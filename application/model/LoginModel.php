@@ -103,6 +103,12 @@ class LoginModel
             return false;
         }
 
+        // Debug password verification
+        error_log('Password verification: ' . $user_password . ' against hash: ' . $result->user_password_hash);
+        $verify_result = password_verify($user_password, $result->user_password_hash);
+        error_log('Password verify result: ' . ($verify_result ? 'true' : 'false'));
+
+
         // block login attempt if somebody has already failed 3 times and the last login attempt is less than 30sec ago
         if (($result->user_failed_logins >= 3) AND ($result->user_last_failed_login > (time() - 30))) {
             Session::add('feedback_negative', Text::get('FEEDBACK_PASSWORD_WRONG_3_TIMES'));
@@ -110,7 +116,7 @@ class LoginModel
         }
 
         // if hash of provided password does NOT match the hash in the database: +1 failed-login counter
-        if (!password_verify($user_password, $result->user_password_hash)) {
+        if (!$verify_result) {
             self::incrementFailedLoginCounterOfUser($result->user_name);
             Session::add('feedback_negative', Text::get('FEEDBACK_USERNAME_OR_PASSWORD_WRONG'));
             return false;
