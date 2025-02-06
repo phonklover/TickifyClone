@@ -18,8 +18,12 @@ class LoginModel
      */
     public static function login($user_name, $user_password, $set_remember_me_cookie = null)
     {
-        // Hash password for admin if not already hashed
+        // Get user data first
+        $result = UserModel::getUserDataByUsername($user_name);
+
+        // If this is first login for admin and password isn't hashed yet
         if ($user_name === 'admin' && is_null($result->user_password_hash)) {
+            // Hash the password and store it
             $hashed_password = password_hash($user_password, PASSWORD_DEFAULT);
             $database = DatabaseFactory::getFactory()->getConnection();
             $sql = "UPDATE users SET user_password_hash = :hash WHERE user_name = 'admin'";
