@@ -1,0 +1,28 @@
+Executed SQL file: C:\wamp64\www\TickifyClone\TickifyClone\application\_installation/01-create-database.sql
+( ! ) Warning: PDO::exec(): SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'users.PRIMARY' in C:\wamp64\www\TickifyClone\TickifyClone\application\_installation\init_database.php on line 18
+Call Stack
+#	Time	Memory	Function	Location
+1	0.0000	452656	{main}( )	...\index.php:0
+2	0.0003	541952	Application->__construct( )	...\index.php:17
+3	0.0004	542552	require( 'C:\wamp64\www\TickifyClone\TickifyClone\application\_installation\init_database.php )	...\Application.php:28
+4	0.0033	542832	executeSQLFile( $filePath = 'C:\\wamp64\\www\\TickifyClone\\TickifyClone\\application\\_installation/02-create-table-users.sql' )	...\init_database.php:35
+5	0.0240	595840	exec( $statement = 'CREATE TABLE IF NOT EXISTS `tickify`.`users` (\r\n `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT \'auto incrementing user_id of each user, unique index\',\r\n `session_id` varchar(48) DEFAULT NULL COMMENT \'stores session cookie id to prevent session concurrency\',\r\n `user_name` varchar(64) COLLATE utf8_unicode_ci NOT NULL COMMENT \'user\'\'s name, unique\',\r\n `user_password_hash` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT \'user\'\'s password in salted and hashed format\',\r\n `user_email` varchar(254) CO'... )	...\init_database.php:18
+Executed SQL file: C:\wamp64\www\TickifyClone\TickifyClone\application\_installation/02-create-table-users.sql Executed SQL file: C:\wamp64\www\TickifyClone\TickifyClone\application\_installation/03-create-table-notes.sql
+( ! ) Warning: PDO::exec(): SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'status' in C:\wamp64\www\TickifyClone\TickifyClone\application\_installation\init_database.php on line 18
+Call Stack
+#	Time	Memory	Function	Location
+1	0.0000	452656	{main}( )	...\index.php:0
+2	0.0003	541952	Application->__construct( )	...\index.php:17
+3	0.0004	542552	require( 'C:\wamp64\www\TickifyClone\TickifyClone\application\_installation\init_database.php )	...\Application.php:28
+4	0.0276	593736	executeSQLFile( $filePath = 'C:\\wamp64\\www\\TickifyClone\\TickifyClone\\application\\_installation/04-changes-in-db.sql' )	...\init_database.php:35
+5	0.0277	595272	exec( $statement = 'CREATE TABLE IF NOT EXISTS support_tickets (\r\n id INT AUTO_INCREMENT PRIMARY KEY,\r\n subject VARCHAR(255) NOT NULL,\r\n description TEXT NOT NULL,\r\n priority ENUM(\'low\', \'mid\', \'high\') NOT NULL,\r\n attachment_path VARCHAR(255),\r\n category VARCHAR(100),\r\n created_by INT NOT NULL,\r\n created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\r\n);\r\n\r\n-- Test data for support_tickets table\r\nINSERT INTO support_tickets (\r\n subject,\r\n description,\r\n priority,\r\n attachment_path,\r\n category,\r\n '... )	...\init_database.php:18
+Executed SQL file: C:\wamp64\www\TickifyClone\TickifyClone\application\_installation/04-changes-in-db.sql
+( ! ) Fatal error: Uncaught ValueError: PDO::exec(): Argument #1 ($statement) cannot be empty in C:\wamp64\www\TickifyClone\TickifyClone\application\_installation\init_database.php on line 18
+( ! ) ValueError: PDO::exec(): Argument #1 ($statement) cannot be empty in C:\wamp64\www\TickifyClone\TickifyClone\application\_installation\init_database.php on line 18
+Call Stack
+#	Time	Memory	Function	Location
+1	0.0000	452656	{main}( )	...\index.php:0
+2	0.0003	541952	Application->__construct( )	...\index.php:17
+3	0.0004	542552	require( 'C:\wamp64\www\TickifyClone\TickifyClone\application\_installation\init_database.php )	...\Application.php:28
+4	0.0323	593848	executeSQLFile( $filePath = 'C:\\wamp64\\www\\TickifyClone\\TickifyClone\\application\\_installation/05-create-initial-accounts.sql' )	...\init_database.php:35
+5	0.0324	594008	exec( $statement = '' )	...\init_database.php:18
