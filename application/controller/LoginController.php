@@ -38,34 +38,29 @@ class LoginController extends Controller
         try {
             // check if csrf token is valid
             if (!Csrf::isTokenValid()) {
-                LoginModel::logout();
-                Redirect::home();
-                exit();
-            }
+            LoginModel::logout();
+            Redirect::home();
+            exit();
+        }
 
-            // perform the login method, put result (true or false) into $login_successful
-            $login_successful = LoginModel::login(
-                Request::post('user_name'), 
-                Request::post('user_password'), 
-                Request::post('set_remember_me_cookie')
-            );
+        // perform the login method, put result (true or false) into $login_successful
+        $login_successful = LoginModel::login(
+            Request::post('user_name'), Request::post('user_password'), Request::post('set_remember_me_cookie')
+        );
 
-            // check login status: if true, then redirect user to dashboard, if false, then to login form again
-            if ($login_successful) {
-                if (Request::post('redirect')) {
-                    Redirect::toPreviousViewedPageAfterLogin(ltrim(urldecode(Request::post('redirect')), '/'));
-                } else {
-                    Redirect::to('dashboard/index');
-                }
+        // check login status: if true, then redirect user to user/index, if false, then to login form again
+        if ($login_successful) {
+            if (Request::post('redirect')) {
+                Redirect::toPreviousViewedPageAfterLogin(ltrim(urldecode(Request::post('redirect')), '/'));
             } else {
-                if (Request::post('redirect')) {
-                    Redirect::to('login?redirect=' . ltrim(urlencode(Request::post('redirect')), '/'));
-                } else {
-                    Redirect::to('login/index');
-                }
+                Redirect::to('dashboard/index');
             }
-        } catch (Exception $e) {
-            Redirect::to('login/index');
+        } else {
+            if (Request::post('redirect')) {
+                Redirect::to('login?redirect=' . ltrim(urlencode(Request::post('redirect')), '/'));
+            } else {
+                Redirect::to('login/index');
+            }
         }
     }
 
@@ -86,7 +81,7 @@ class LoginController extends Controller
     public function loginWithCookie()
     {
         // run the loginWithCookie() method in the login-model, put the result in $login_successful (true or false)
-        $login_successful = LoginModel::loginWithCookie(Request::cookie('remember_me'));
+         $login_successful = LoginModel::loginWithCookie(Request::cookie('remember_me'));
 
         // if login successful, redirect to dashboard/index ...
         if ($login_successful) {

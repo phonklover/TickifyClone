@@ -21,12 +21,12 @@ class LoginModel
         try {
             // we do negative-first checks here, for simplicity empty username and empty password in one line
             if (empty($user_name) OR empty($user_password)) {
-                Session::add('feedback_negative', Text::get('FEEDBACK_USERNAME_OR_PASSWORD_FIELD_EMPTY'));
-                return false;
-            }
+            Session::add('feedback_negative', Text::get('FEEDBACK_USERNAME_OR_PASSWORD_FIELD_EMPTY'));
+            return false;
+        }
 
-            // checks if user exists, if login is not blocked (due to failed logins) and if password fits the hash
-            $result = self::validateAndGetUser($user_name, $user_password);
+        // checks if user exists, if login is not blocked (due to failed logins) and if password fits the hash
+        $result = self::validateAndGetUser($user_name, $user_password);
 
         // check if that user exists. We don't give back a cause in the feedback to avoid giving an attacker details.
         if (!$result) {
@@ -51,12 +51,6 @@ class LoginModel
         if ($result->user_last_failed_login > 0) {
             self::resetFailedLoginCounterOfUser($result->user_name);
         }
-        
-        return $result;
-    } catch (Exception $e) {
-        Session::add('feedback_negative', Text::get('FEEDBACK_LOGIN_FAILED'));
-        return false;
-    }
 
         // save timestamp of this login in the database line of that user
         self::saveTimestampOfLoginOfUser($result->user_name);
