@@ -63,11 +63,11 @@ return array(
      * DB_CHARSET The charset, necessary for security reasons. Check Database.php class for more info.
      */
     'DB_TYPE' => 'mysql',
-    'DB_HOST' => '127.0.0.1',
+    'DB_HOST' => 'localhost',
     'DB_NAME' => 'tickify',
     'DB_USER' => 'root',
     'DB_PASS' => '',
-    'DB_PORT' => '3307',
+    'DB_PORT' => '3306',
     'DB_CHARSET' => 'utf8',
     /**
      * Configuration for: Captcha size

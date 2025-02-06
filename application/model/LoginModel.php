@@ -18,6 +18,20 @@ class LoginModel
      */
     public static function login($user_name, $user_password, $set_remember_me_cookie = null)
     {
+        // Get user data first
+        $result = UserModel::getUserDataByUsername($user_name);
+
+        // If this is first login for admin and password isn't hashed yet
+        if ($user_name === 'admin' && is_null($result->user_password_hash)) {
+            // Hash the password and store it
+            $hashed_password = password_hash($user_password, PASSWORD_DEFAULT);
+            $database = DatabaseFactory::getFactory()->getConnection();
+            $sql = "UPDATE users SET user_password_hash = :hash WHERE user_name = 'admin'";
+            $query = $database->prepare($sql);
+            $query->execute(array(':hash' => $hashed_password));
+            $result->user_password_hash = $hashed_password;
+        }
+
         // we do negative-first checks here, for simplicity empty username and empty password in one line
         if (empty($user_name) OR empty($user_password)) {
             Session::add('feedback_negative', Text::get('FEEDBACK_USERNAME_OR_PASSWORD_FIELD_EMPTY'));
@@ -103,14 +117,28 @@ class LoginModel
             return false;
         }
 
-        // block login attempt if somebody has already failed 3 times and the last login attempt is less than 30sec ago
-        if (($result->user_failed_logins >= 3) AND ($result->user_last_failed_login > (time() - 30))) {
+        // Debug password verification
+        error_log('Password verification: ' . $user_password . ' against hash: ' . $result->user_password_hash);
+        $verify_result = password_verify($user_password, $result->user_password_hash);
+        error_log('Password verify result: ' . ($verify_result ? 'true' : 'false'));
+
+
+        // Add IP-based throttling in addition to username
+        $ip = $_SERVER['REMOTE_ADDR'];
+        if (Session::get('failed-login-count-' . $ip) >= 3 && 
+            (Session::get('last-failed-login-' . $ip) > (time() - 30))) {
+            Session::add('feedback_negative', Text::get('FEEDBACK_PASSWORD_WRONG_3_TIMES'));
+            return false;
+        }
+
+        // Also keep username-based throttling
+        if (($result->user_failed_logins >= 3) && ($result->user_last_failed_login > (time() - 30))) {
             Session::add('feedback_negative', Text::get('FEEDBACK_PASSWORD_WRONG_3_TIMES'));
             return false;
         }
 
         // if hash of provided password does NOT match the hash in the database: +1 failed-login counter
-        if (!password_verify($user_password, $result->user_password_hash)) {
+        if (!$verify_result) {
             self::incrementFailedLoginCounterOfUser($result->user_name);
             Session::add('feedback_negative', Text::get('FEEDBACK_USERNAME_OR_PASSWORD_WRONG'));
             return false;

@@ -23,6 +23,11 @@ class Application
      */
     public function __construct()
     {
+        // Initialize database if needed
+        if (!file_exists(__DIR__ . '/../_installation/.db_initialized')) {
+            require __DIR__ . '/../_installation/init_database.php';
+            file_put_contents(__DIR__ . '/../_installation/.db_initialized', 'true');
+        }
         // create array with URL parts in $url
         $this->splitUrl();
 

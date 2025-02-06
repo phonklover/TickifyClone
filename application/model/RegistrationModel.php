@@ -28,9 +28,13 @@ class RegistrationModel
             return false;
         }
 
-        // crypt the password with the PHP 5.5's password_hash() function, results in a 60 character hash string.
-        // @see php.net/manual/en/function.password-hash.php for more, especially for potential options
-        $user_password_hash = password_hash($user_password_new, PASSWORD_DEFAULT);
+        // Use a strong password hashing with a cost of 10
+        $user_password_hash = password_hash($user_password_new, PASSWORD_DEFAULT, ['cost' => 10]);
+        // Verify the hash was created correctly
+        if (!password_verify($user_password_new, $user_password_hash)) {
+            Session::add('feedback_negative', 'Password hashing failed');
+            return false;
+        }
 
         // make return a bool variable, so both errors can come up at once if needed
         $return = true;
