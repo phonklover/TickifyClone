@@ -55,10 +55,14 @@ class LoginController extends Controller
                 Redirect::to('user/index');
             }
         } else {
-            if (Request::post('redirect')) {
-                Redirect::to('login?redirect=' . ltrim(urlencode(Request::post('redirect')), '/'));
+            if ($login_successful) {
+                Redirect::to('dashboard/index');
             } else {
-                Redirect::to('login/index');
+                if (Request::post('redirect')) {
+                    Redirect::to('login?redirect=' . ltrim(urlencode(Request::post('redirect')), '/'));
+                } else {
+                    Redirect::to('login/index');
+                }
             }
         }
     }
