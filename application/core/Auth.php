@@ -15,14 +15,17 @@ class Auth
      */
     public static function checkAuthentication()
     {
-        // initialize the session (if not initialized yet)
+        // Always ensure session is started
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        
         Session::init();
 
-        // self::checkSessionConcurrency();
+        self::checkSessionConcurrency();
 
-        // if user is NOT logged in...
-        // (if user IS logged in the application will not run the code below and therefore just go on)
-        if (!Session::userIsLoggedIn()) {
+        // Verify session integrity
+        if (!Session::userIsLoggedIn() || !Session::get('user_id')) {
 
             // ... then treat user as "not logged in", destroy session, redirect to login page
             Session::destroy();

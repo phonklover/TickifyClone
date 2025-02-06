@@ -123,8 +123,16 @@ class LoginModel
         error_log('Password verify result: ' . ($verify_result ? 'true' : 'false'));
 
 
-        // block login attempt if somebody has already failed 3 times and the last login attempt is less than 30sec ago
-        if (($result->user_failed_logins >= 3) AND ($result->user_last_failed_login > (time() - 30))) {
+        // Add IP-based throttling in addition to username
+        $ip = $_SERVER['REMOTE_ADDR'];
+        if (Session::get('failed-login-count-' . $ip) >= 3 && 
+            (Session::get('last-failed-login-' . $ip) > (time() - 30))) {
+            Session::add('feedback_negative', Text::get('FEEDBACK_PASSWORD_WRONG_3_TIMES'));
+            return false;
+        }
+
+        // Also keep username-based throttling
+        if (($result->user_failed_logins >= 3) && ($result->user_last_failed_login > (time() - 30))) {
             Session::add('feedback_negative', Text::get('FEEDBACK_PASSWORD_WRONG_3_TIMES'));
             return false;
         }
