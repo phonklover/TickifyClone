@@ -41,7 +41,7 @@
 
 
         <?php if ($this->tickets): ?>
-            <table class="ticket-table">
+            <table class="ticket-table display">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -58,12 +58,12 @@
                 <?php foreach ($this->tickets as $ticket): ?>
                     <tr>
                         <td><?= $ticket->id; ?></td>
-                        <td><?= htmlentities($ticket->subject); ?></td>
-                        <td><?= htmlentities($ticket->description); ?></td>
-                        <td><?= ucfirst($ticket->priority); ?></td>
-                        <td><?= htmlentities($ticket->category); ?></td>
-                        <td><?= ucfirst($ticket->status); ?></td>
-                        <td><?= $ticket->created_at; ?></td>
+                        <td data-search="<?= htmlentities($ticket->subject); ?>"><?= htmlentities($ticket->subject); ?></td>
+                        <td data-search="<?= htmlentities($ticket->description); ?>"><?= htmlentities($ticket->description); ?></td>
+                        <td data-search="<?= ucfirst($ticket->priority); ?>"><?= ucfirst($ticket->priority); ?></td>
+                        <td data-search="<?= htmlentities($ticket->category); ?>"><?= htmlentities($ticket->category); ?></td>
+                        <td data-search="<?= ucfirst($ticket->status); ?>"><?= ucfirst($ticket->status); ?></td>
+                        <td data-search="<?= $ticket->created_at; ?>"><?= $ticket->created_at; ?></td>
                         <td>
                             <a href="<?= Config::get('URL') . 'ticket/edit/' . $ticket->id; ?>">Edit</a> |
                             <a href="<?= Config::get('URL') . 'ticket/delete/' . $ticket->id; ?>" onclick="return confirm('Are you sure you want to delete this ticket?');">Delete</a>
@@ -75,6 +75,21 @@
         <?php else: ?>
             <div>No tickets found. Create some!</div>
         <?php endif; ?>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.0/js/jquery.dataTables.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.0/css/jquery.dataTables.min.css" />
+
+        <script>
+            $(document).ready(function () {
+                $('.ticket-table').DataTable({
+                    responsive: true,
+                    paging: true,
+                    searching: true,
+                    order: [[0, 'asc']],
+                });
+            });
+        </script>
 
     </div>
 </div>
