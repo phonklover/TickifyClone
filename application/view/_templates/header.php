@@ -66,6 +66,7 @@
                     </li>
                 </ul>
             </li>
+            <!-- Admin -->
             <?php if (Session::get("user_account_type") == 7) : ?>
                 <li <?php if (View::checkForActiveController($filename, "admin")) {
                     echo ' class="active" ';
@@ -74,12 +75,23 @@
                 </li>
 
             <?php if (Session::userIsLoggedIn()) { ?>
-                <li <?php if (View::checkForActiveController($filename, "profile")) { echo ' class="active" '; } ?> >
-                    <a href="<?php echo Config::get('URL'); ?>profile/index">Profiles</a>
-                </li>
 
                 <?php } ?>
 
             <?php endif; ?>
         <?php endif; ?>
+
+            <!-- Moderator -->
+            <?php if (Session::get("user_account_type") >= 5) : ?>
+
+
+            <?php if (Session::userIsLoggedIn()) { ?>
+            <li <?php if (View::checkForActiveController($filename, "profile")) { echo ' class="active" '; } ?> >
+                <a href="<?php echo Config::get('URL'); ?>profile/index">Profiles</a>
+            </li>
+
+            <?php } ?>
+
+            <?php endif; ?>
+
         </ul>

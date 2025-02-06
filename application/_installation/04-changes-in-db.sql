@@ -31,3 +31,23 @@ ALTER TABLE:
 
     ALTER TABLE support_tickets
     ADD COLUMN status ENUM('open', 'resolved', 'waiting') NOT NULL DEFAULT 'open';
+
+
+
+--USER GROUPS FOR RULES
+CREATE TABLE IF NOT EXISTS `user_groups_long` (
+                                                  `id` int(11) NOT NULL AUTO_INCREMENT,
+    `account_type` int(11) NOT NULL,
+    `lang` varchar(255) NOT NULL,
+    PRIMARY KEY (`id`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `user_groups_long` (`id`, `account_type`, `lang`) VALUES
+                                                                  (1, 1, 'Guest'),
+                                                                  (2, 2, 'User'),
+                                                                  (3, 7, 'Admin');
+                                                                  (4, 5, 'Moderator');
+
+
+ALTER TABLE `user_groups_long`
+    AUTO_INCREMENT = 4;
