@@ -21,12 +21,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        // Load ticket statistics
         $tickets = new TicketModel();
-        $this->View->tickets_open = $tickets->getOpenTicketsCount();
-        $this->View->tickets_closed = $tickets->getClosedTicketsCount();
-        $this->View->tickets_total = $tickets->getTotalTicketsCount();
-        
+        $this->View->tickets = $tickets->getAllTickets();
         $this->View->render('dashboard/index');
     }
 }
