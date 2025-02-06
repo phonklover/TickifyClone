@@ -51,6 +51,12 @@ class LoginModel
         if ($result->user_last_failed_login > 0) {
             self::resetFailedLoginCounterOfUser($result->user_name);
         }
+        
+        return $result;
+    } catch (Exception $e) {
+        Session::add('feedback_negative', Text::get('FEEDBACK_LOGIN_FAILED'));
+        return false;
+    }
 
         // save timestamp of this login in the database line of that user
         self::saveTimestampOfLoginOfUser($result->user_name);
