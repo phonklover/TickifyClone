@@ -1,95 +1,53 @@
 <?php
 
 /**
- * Handles all data manipulation of the admin part
+ * Handles all data manipulation of the Ticket part
  */
 class TicketModel
 {
-    /**
-     * Sets the deletion and suspension values
-     *
-     * @param $suspensionInDays
-     * @param $softDelete
-     * @param $userId
-     */
-    public static function setAccountSuspensionAndDeletionStatus($suspensionInDays, $softDelete, $userId)
-    {
-
-        // Prevent to suspend or delete own account.
-        // If admin suspend or delete own account will not be able to do any action.
-        if ($userId == Session::get('user_id')) {
-            Session::add('feedback_negative', Text::get('FEEDBACK_ACCOUNT_CANT_DELETE_SUSPEND_OWN'));
-            return false;
-        }
-
-        if ($suspensionInDays > 0) {
-            $suspensionTime = time() + ($suspensionInDays * 60 * 60 * 24);
-        } else {
-            $suspensionTime = null;
-        }
-
-        // FYI "on" is what a checkbox delivers by default when submitted. Didn't know that for a long time :)
-        if ($softDelete == "on") {
-            $delete = 1;
-        } else {
-            $delete = 0;
-        }
-
-        // write the above info to the database
-        self::writeDeleteAndSuspensionInfoToDatabase($userId, $suspensionTime, $delete);
-
-        // if suspension or deletion should happen, then also kick user out of the application instantly by resetting
-        // the user's session :)
-        if ($suspensionTime != null OR $delete = 1) {
-            self::resetUserSession($userId);
-        }
-    }
 
     /**
-     * Simply write the deletion and suspension info for the user into the database, also puts feedback into session
-     *
-     * @param $userId
-     * @param $suspensionTime
-     * @param $delete
-     * @return bool
+     * Get all tickets created by the current logged-in user
+     * @return array an array with ticket objects
      */
-    private static function writeDeleteAndSuspensionInfoToDatabase($userId, $suspensionTime, $delete)
+    public static function getAllTickets()
     {
         $database = DatabaseFactory::getFactory()->getConnection();
 
-        $query = $database->prepare("UPDATE users SET user_suspension_timestamp = :user_suspension_timestamp, user_deleted = :user_deleted  WHERE user_id = :user_id LIMIT 1");
-        $query->execute(array(
-                ':user_suspension_timestamp' => $suspensionTime,
-                ':user_deleted' => $delete,
-                ':user_id' => $userId
-        ));
+        $sql = "SELECT id, subject, description, priority, category,status , created_at FROM support_tickets WHERE created_by = :user_id";
+        $query = $database->prepare($sql);
 
-        if ($query->rowCount() == 1) {
-            Session::add('feedback_positive', Text::get('FEEDBACK_ACCOUNT_SUSPENSION_DELETION_STATUS'));
-            return true;
-        }
+        $query->execute(array(':user_id' => Session::get('user_id')));
+
+        return $query->fetchAll();
     }
 
     /**
-     * Kicks the selected user out of the system instantly by resetting the user's session.
-     * This means, the user will be "logged out".
-     *
-     * @param $userId
-     * @return bool
+     * Create a new ticket and insert it into the database
+     * @param string $subject
+     * @param string $description
+     * @param string $priority
+     * @param string $category
+     * @return bool Returns true if the ticket was created successfully, false otherwise
      */
-    private static function resetUserSession($userId)
+    public static function createTicket($subject, $description, $priority, $category)
     {
         $database = DatabaseFactory::getFactory()->getConnection();
 
-        $query = $database->prepare("UPDATE users SET session_id = :session_id  WHERE user_id = :user_id LIMIT 1");
-        $query->execute(array(
-                ':session_id' => null,
-                ':user_id' => $userId
-        ));
+        $sql = "INSERT INTO support_tickets (subject, description, priority, category, status, created_by, created_at) 
+            VALUES (:subject, :description, :priority, :category, :status, :created_by, NOW())";
 
-        if ($query->rowCount() == 1) {
-            Session::add('feedback_positive', Text::get('FEEDBACK_ACCOUNT_USER_SUCCESSFULLY_KICKED'));
-            return true;
-        }
+        $query = $database->prepare($sql);
+        $result = $query->execute([
+            ':subject' => $subject,
+            ':description' => $description,
+            ':priority' => $priority,
+            ':category' => $category,
+            ':status' => 'open', // status is by default set to open, admin will have option to change it
+            ':created_by' => Session::get('user_id')
+        ]);
+
+        return $result;
     }
+
 }

@@ -17,10 +17,43 @@ class TicketController extends Controller
     }
 
     /**
-     * This method controls what happens when you move to /dashboard/index in your app.
+     * This method controls what happens when you move to /ticket/index in your app.
      */
+
     public function index()
     {
-        $this->View->render('ticket/index');
+        $this->View->render('ticket/index', array(
+            'tickets' => TicketModel::getAllTickets()
+        ));
     }
+
+    public function createTicket()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $subject = trim($_POST['subject'] ?? '');
+            $description = trim($_POST['description'] ?? '');
+            $priority = trim($_POST['priority'] ?? '');
+            $category = trim($_POST['category'] ?? '');
+
+            if (empty($subject) || empty($description) || empty($priority)) {
+                Session::add('feedback_negative', 'Please fill in all required fields.');
+                header('Location: ' . Config::get('URL') . 'ticket');
+                exit;
+            }
+
+            $result = TicketModel::createTicket($subject, $description, $priority, $category);
+
+            if ($result) {
+                Session::add('feedback_positive', 'Ticket created successfully.');
+            } else {
+                Session::add('feedback_negative', 'An error occurred while creating the ticket.');
+            }
+
+            header('Location: ' . Config::get('URL') . 'ticket');
+            exit;
+        }
+
+        header('Location: ' . Config::get('URL') . 'ticket');
+    }
+
 }
