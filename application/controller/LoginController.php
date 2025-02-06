@@ -64,6 +64,11 @@ class LoginController extends Controller
         }
     }
 
+    } catch (Exception $e) {
+            Redirect::to('login/index');
+        }
+    }
+
     /**
      * The logout action
      * Perform logout, redirect user to main-page
