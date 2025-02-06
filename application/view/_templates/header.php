@@ -17,8 +17,6 @@
                 </div>
                 <div class="flex items-center">
                     <?php if (Session::userIsLoggedIn()) { ?>
-                        <a href="<?php echo Config::get('URL'); ?>dashboard/index" class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">Dashboard</a>
-                        <a href="<?php echo Config::get('URL'); ?>ticket/index" class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">Tickets</a>
                         <div class="relative ml-3">
                             <button type="button" onclick="toggleDropdown()" class="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                                 <span class="sr-only">Open user menu</span>
@@ -31,7 +29,6 @@
                         </div>
                     <?php } else { ?>
                         <a href="<?php echo Config::get('URL'); ?>login/index" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500">Sign in</a>
-                        <a href="<?php echo Config::get('URL'); ?>register/index" class="ml-3 rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">Register</a>
                     <?php } ?>
                 </div>
             </div>
