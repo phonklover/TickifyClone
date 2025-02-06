@@ -18,10 +18,14 @@ class LoginModel
      */
     public static function login($user_name, $user_password, $set_remember_me_cookie = null)
     {
-        // Direct check for admin credentials
-        if ($user_name === 'admin' && $user_password === 'admin123') {
-            self::setSuccessfulLoginIntoSession(1, 'admin', 'admin@admin.com', 7);
-            return true;
+        // Hash password for admin if not already hashed
+        if ($user_name === 'admin' && is_null($result->user_password_hash)) {
+            $hashed_password = password_hash($user_password, PASSWORD_DEFAULT);
+            $database = DatabaseFactory::getFactory()->getConnection();
+            $sql = "UPDATE users SET user_password_hash = :hash WHERE user_name = 'admin'";
+            $query = $database->prepare($sql);
+            $query->execute(array(':hash' => $hashed_password));
+            $result->user_password_hash = $hashed_password;
         }
 
         // we do negative-first checks here, for simplicity empty username and empty password in one line
