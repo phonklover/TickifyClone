@@ -38,7 +38,13 @@ class LoginController extends Controller
         if ($login_successful) {
             Session::init();
             Session::set('user_logged_in', true);
-            header('Location: ' . Config::get('URL') . 'dashboard/index');
+            Session::set('user_id', LoginModel::getCurrentUserId());
+            
+            if (Request::get('redirect')) {
+                header('Location: ' . Config::get('URL') . Request::get('redirect'));
+            } else {
+                header('Location: ' . Config::get('URL') . 'dashboard/index');
+            }
             exit();
         } else {
             Redirect::to('login/index');

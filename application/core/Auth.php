@@ -15,31 +15,22 @@ class Auth
      */
     public static function checkAuthentication()
     {
-        // Always ensure session is started
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
+        Session::init();
+        
+        if (!Session::userIsLoggedIn() || !Session::get('user_id')) {
+            Session::destroy();
+            
+            if (!headers_sent()) {
+                $redirectUrl = Config::get('URL') . 'login';
+                if (isset($_SERVER['REQUEST_URI'])) {
+                    $redirectUrl .= '?redirect=' . urlencode($_SERVER['REQUEST_URI']);
+                }
+                header('Location: ' . $redirectUrl);
+                exit();
+            }
         }
         
-        Session::init();
-
         self::checkSessionConcurrency();
-
-        // Verify session integrity
-        if (!Session::userIsLoggedIn() || !Session::get('user_id')) {
-
-            // ... then treat user as "not logged in", destroy session, redirect to login page
-            Session::destroy();
-
-            // send the user to the login form page, but also add the current page's URI (the part after the base URL)
-            // as a parameter argument, making it possible to send the user back to where he/she came from after a
-            // successful login
-            header('location: ' . Config::get('URL') . 'login?redirect=' . urlencode($_SERVER['REQUEST_URI']));
-
-            // to prevent fetching views via cURL (which "ignores" the header-redirect above) we leave the application
-            // the hard way, via exit(). @see https://github.com/panique/php-login/issues/453
-            // this is not optimal and will be fixed in future releases
-            exit();
-        }
     }
 
     /**

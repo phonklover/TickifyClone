@@ -13,8 +13,15 @@ class Session
      */
     public static function init()
     {
-        // if no session exist, start the session
-        if (session_id() == '') {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_set_cookie_params([
+                'lifetime' => 0,
+                'path' => '/',
+                'domain' => '',
+                'secure' => false,
+                'httponly' => true,
+                'samesite' => 'Lax'
+            ]);
             session_start();
         }
     }
