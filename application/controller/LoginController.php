@@ -52,8 +52,7 @@ class LoginController extends Controller
             if (Request::post('redirect')) {
                 Redirect::to(ltrim(Request::post('redirect'), '/'));
             } else {
-                header('Location: ' . Config::get('URL') . 'dashboard');
-                exit();
+                Redirect::to('dashboard/index');
             }
         } else {
             if (Request::post('redirect')) {
