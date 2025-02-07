@@ -7,20 +7,7 @@
  */
 class Redirect
 {
-    /**
-     * To the last visited page before user logged in (useful when people are on a certain page inside your application
-     * and then want to log in (to edit or comment something for example) and don't to be redirected to the main page).
-     *
-     * This is just a bulletproof version of Redirect::to(), redirecting to an ABSOLUTE URL path like
-     * "http://www.mydomain.com/user/profile", useful as people had problems with the RELATIVE URL path generated
-     * by Redirect::to() when using tickify inside sub-folders.
-     *
-     * @param $path string
-     */
-    public static function toPreviousViewedPageAfterLogin($path)
-    {
-        header('location: http://' . $_SERVER['HTTP_HOST'] . '/' . $path);
-    }
+    
 
     /**
      * To the homepage
