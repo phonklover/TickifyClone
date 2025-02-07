@@ -33,7 +33,7 @@ return array(
      * This detects your URL/IP incl. sub-folder automatically. You can also deactivate auto-detection and provide the
      * URL manually. This should then look like 'http://192.168.33.44/' ! Note the slash in the end.
      */
-    'URL' => 'http://localhost/TickifyClone/public/',
+    'URL' => 'http://localhost/TickifyClone/',
     /**
      * Configuration for: Folders
      * Usually there's no reason to change this.

@@ -20,7 +20,6 @@ class LoginController extends Controller
 
     public function login()
     {
-        die(Config::get('URL') . 'dashboard/index');
         // check if csrf token is valid
         if (!Csrf::isTokenValid()) {
             LoginModel::logout();
@@ -38,8 +37,10 @@ class LoginController extends Controller
         // check login status: if true, then redirect user to dashboard, if false, then to login form again
         if ($login_successful) {
             Redirect::to('dashboard/index');
+            exit();
         } else {
             Redirect::to('login/index');
+            exit();
         }
     }
 
