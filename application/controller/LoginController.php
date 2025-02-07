@@ -41,7 +41,8 @@ class LoginController extends Controller
             Session::set('user_id', LoginModel::getCurrentUserId());
             Session::set('user_account_type', LoginModel::getUserAccountType());
             
-            header('Location: ' . Config::get('URL') . 'dashboard/index');
+            $dashboard = new DashboardController();
+            $dashboard->index();
             exit();
         } else {
             Redirect::to('login/index');
