@@ -2,3 +2,5 @@
 /nbproject/private/
 # don't commit all the dependencies fetched via Composer
 /vendor/
+# don't commit chat history
+/application/view/aiChat/
