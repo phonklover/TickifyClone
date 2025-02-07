@@ -20,6 +20,7 @@ class LoginController extends Controller
 
     public function login()
     {
+        die(Config::get('URL') . 'dashboard/index');
         // check if csrf token is valid
         if (!Csrf::isTokenValid()) {
             LoginModel::logout();
