@@ -45,6 +45,7 @@ class LoginController extends Controller
             $dashboard->index();
             exit();
         } else {
+            Session::add('feedback_negative', 'Login failed. Please check your credentials.');
             Redirect::to('login/index');
             exit();
         }
