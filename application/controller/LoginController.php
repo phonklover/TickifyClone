@@ -36,8 +36,7 @@ class LoginController extends Controller
 
         // check login status: if true, then redirect user to dashboard, if false, then to login form again
         if ($login_successful) {
-            header('Location: ' . Config::get('URL') . 'dashboard/index');
-            exit();
+            Redirect::to('/dashboard/index');
         } else {
             Redirect::to('login/index');
         }
