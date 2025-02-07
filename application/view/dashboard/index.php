@@ -1,4 +1,3 @@
-
 <div class="min-h-screen bg-gray-100">
     <!-- Sidebar -->
     <div class="fixed left-0 top-0 h-full w-64 bg-white shadow-lg">
@@ -7,7 +6,7 @@
                 <span class="text-lg font-semibold"><?php echo Session::get('user_name'); ?></span>
                 <span class="text-sm text-gray-500">Account</span>
             </div>
-            
+
             <nav>
                 <div class="mb-8">
                     <a href="<?php echo Config::get('URL'); ?>dashboard" class="block py-2 text-blue-600">Dashboard</a>
@@ -52,37 +51,44 @@
             </div>
         </div>
 
-        <!-- Tickets List -->
         <div class="space-y-4">
             <?php foreach ($this->tickets as $ticket): ?>
-            <div class="bg-white rounded-lg shadow p-4">
-                <div class="flex justify-between items-start">
-                    <div>
-                        <div class="flex items-center space-x-2 mb-2">
-                            <span class="px-2 py-1 text-xs rounded <?php echo $ticket->status === 'on-hold' ? 'bg-yellow-100 text-yellow-800' : 'bg-gray-100'; ?>">
-                                <?php echo ucfirst($ticket->status); ?>
-                            </span>
-                            <h3 class="font-medium"><?php echo htmlspecialchars($ticket->title); ?></h3>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <div class="flex justify-between items-center mb-2">
+                        <div>
+                            <h3 class="font-semibold"><?= htmlspecialchars($ticket->title) ?></h3>
+                            <span class="text-sm text-gray-500"><?= htmlspecialchars($ticket->status) ?></span>
                         </div>
-                        <p class="text-sm text-gray-600"><?php echo htmlspecialchars($ticket->description); ?></p>
-                    </div>
-                    <div class="flex items-center space-x-6">
                         <div class="flex items-center space-x-2">
-                            <div class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center">
-                                <span class="text-xs"><?php echo substr($ticket->assigned_to ?: 'UA', 0, 2); ?></span>
-                            </div>
-                            <div class="text-sm">
-                                <div><?php echo $ticket->assigned_to ?: 'Unassigned'; ?></div>
-                                <div class="text-xs text-gray-500">Assignee</div>
+                            <span class="px-2 py-1 text-xs rounded <?= $ticket->priority === 'high' ? 'bg-red-100 text-red-800' : 'bg-gray-100' ?>">
+                                <?= htmlspecialchars($ticket->priority) ?>
+                            </span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm"><?= htmlspecialchars($ticket->description) ?></p>
+                    <div class="flex justify-between items-center mt-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="flex items-center">
+                                <svg class="w-4 h-4 text-gray-400 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span class="text-sm text-gray-500"><?= htmlspecialchars($ticket->created_at) ?></span>
                             </div>
                         </div>
-                        <div class="text-sm text-right">
-                            <div>Priority: <?php echo ucfirst($ticket->priority); ?></div>
-                            <div class="text-xs text-gray-500">Due on: <?php echo date('n.j.Y', strtotime($ticket->due_date)); ?></div>
+                        <div class="flex space-x-2">
+                            <button class="text-gray-600 hover:text-gray-900">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                </svg>
+                            </button>
+                            <button class="text-gray-600 hover:text-gray-900">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </div>
-            </div>
             <?php endforeach; ?>
         </div>
     </div>
